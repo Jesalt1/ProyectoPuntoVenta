@@ -1,0 +1,13 @@
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\bin\Debug\SistemaPuntoVenta.exe.config
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\bin\Debug\SistemaPuntoVenta.exe
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\bin\Debug\SistemaPuntoVenta.pdb
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\bin\Debug\FontAwesome.Sharp.dll
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\Capa_Presentacion.csproj.AssemblyReference.cache
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\Capa_Presentacion.csproj.SuggestedBindingRedirects.cache
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Inicio.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Properties.Resources.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\Capa_Presentacion.csproj.GenerateResource.cache
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\Capa_Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\Capa_Presentacion.csproj.CopyComplete
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.exe
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.pdb
