@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Capa_Negocio
+namespace Capa_Datos
 {
-    public class Class1
+    public interface CRUD
     {
+        List<object> Listar();
     }
 }

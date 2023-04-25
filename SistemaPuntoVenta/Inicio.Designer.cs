@@ -191,6 +191,7 @@
             this.Controls.Add(this.menuStripTitle);
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Inicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
@@ -214,4 +215,3 @@
         private System.Windows.Forms.Panel panelChildForm;
     }
 }
-
