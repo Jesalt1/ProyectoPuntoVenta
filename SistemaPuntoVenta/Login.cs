@@ -33,6 +33,7 @@ namespace SistemaPuntoVenta
 
         private void OpenMainMenu()
         {
+            //estoy probando si git actualiza cambios
             Usuario usuario = new UsuarioNeg().Listar().Where(u => u.Documento.Equals(textBoxUser.Text) && u.Clave.Equals(textBoxPassword.Text)).FirstOrDefault();
 
             if (usuario != null)
