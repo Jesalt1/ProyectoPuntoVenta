@@ -25,7 +25,7 @@ namespace Capa_Datos
                     //Comando SQL con la cual llamaremos los datos de usuario y se guardaran en una lista del tipo usuario
 
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdUsuario,Documento,Correo,Contrasenia,Estado, NombreCompleto from usuario ");
+                    query.AppendLine("select IdUsuario,Documento,NombreCompleto,Correo,Clave,Estado from usuario");
                     //query.AppendLine("select u.IdUsuario,u.Documento,u.NombreCompleto,u.Correo,u.Clave,u.Estado,r.IdRol,r.Descripcion from usuario u");
                     //query.AppendLine("inner join rol r on r.IdRol = u.IdRol");
 
@@ -47,7 +47,7 @@ namespace Capa_Datos
                                 Documento = dr["Documento"].ToString(),
                                 NombreCompleto = dr["NombreCompleto"].ToString(),
                                 Correo = dr["Correo"].ToString(),
-                                Clave = dr["Contrasenia"].ToString(),
+                                Clave = dr["Clave"].ToString(),
                                 Estado = Convert.ToBoolean(dr["Estado"]),
                                 //oRol = new Rol() { IdRol = Convert.ToInt32(dr["IdRol"]), Descripcion = dr["Descripcion"].ToString() }
                             });

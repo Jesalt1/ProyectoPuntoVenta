@@ -39,6 +39,7 @@
             this.menuStripTitle = new System.Windows.Forms.MenuStrip();
             this.label1 = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.UsuarioLabel = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -180,11 +181,24 @@
             this.panelChildForm.Size = new System.Drawing.Size(1032, 307);
             this.panelChildForm.TabIndex = 3;
             // 
+            // UsuarioLabel
+            // 
+            this.UsuarioLabel.AutoSize = true;
+            this.UsuarioLabel.BackColor = System.Drawing.Color.SteelBlue;
+            this.UsuarioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsuarioLabel.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.UsuarioLabel.Location = new System.Drawing.Point(822, 23);
+            this.UsuarioLabel.Name = "UsuarioLabel";
+            this.UsuarioLabel.Size = new System.Drawing.Size(59, 20);
+            this.UsuarioLabel.TabIndex = 4;
+            this.UsuarioLabel.Text = "aaaaa";
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1032, 450);
+            this.Controls.Add(this.UsuarioLabel);
             this.Controls.Add(this.panelChildForm);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip);
@@ -193,6 +207,7 @@
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Inicio_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
@@ -213,5 +228,6 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuItemReportes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelChildForm;
+        private System.Windows.Forms.Label UsuarioLabel;
     }
 }

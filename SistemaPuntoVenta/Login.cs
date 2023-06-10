@@ -38,7 +38,9 @@ namespace SistemaPuntoVenta
 
             if (usuario != null)
             {
-                Inicio inicio = new Inicio();
+                //se envia el objeto del tipo usuario que se ha obtenido de la consulta a la base de datos
+                //
+                Inicio inicio = new Inicio(usuario);
                 inicio.Show();
                 this.Hide();
 
@@ -61,5 +63,9 @@ namespace SistemaPuntoVenta
             this.Show();
         }
 
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
