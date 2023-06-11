@@ -18,3 +18,10 @@ C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\bin\Debug\Capa_E
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\bin\Debug\Capa_Negocio.pdb
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\bin\Debug\Capa_Datos.dll
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\bin\Debug\Capa_Datos.pdb
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Usuarios.frmUsuarios.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Productos.frmCategoria.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Productos.frmProductos.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Compras.frmRegistrarCompras.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Ventas.frmDetallesVentas.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Ventas.frmRegistrarVentas.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Compras.frmDetallesCompras.resources
