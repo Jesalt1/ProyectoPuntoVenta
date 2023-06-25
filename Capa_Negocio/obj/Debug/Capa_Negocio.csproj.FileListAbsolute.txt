@@ -1,11 +1,11 @@
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\bin\Debug\Capa_Negocio.dll
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\bin\Debug\Capa_Negocio.pdb
-C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\obj\Debug\Capa_Negocio.csproj.AssemblyReference.cache
-C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\obj\Debug\Capa_Negocio.csproj.CoreCompileInputs.cache
-C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\obj\Debug\Capa_Negocio.dll
-C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\obj\Debug\Capa_Negocio.pdb
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\bin\Debug\Capa_Datos.dll
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\bin\Debug\Capa_Entidad.dll
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\bin\Debug\Capa_Datos.pdb
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\bin\Debug\Capa_Entidad.pdb
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\obj\Debug\Capa_Negocio.csproj.AssemblyReference.cache
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\obj\Debug\Capa_Negocio.csproj.CoreCompileInputs.cache
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\obj\Debug\Capa_Negocio.csproj.CopyComplete
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\obj\Debug\Capa_Negocio.dll
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Negocio\obj\Debug\Capa_Negocio.pdb

@@ -57,10 +57,10 @@
             this.iconPictureBox1.IconChar = FontAwesome.Sharp.IconChar.Store;
             this.iconPictureBox1.IconColor = System.Drawing.SystemColors.ControlLight;
             this.iconPictureBox1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.iconPictureBox1.IconSize = 99;
-            this.iconPictureBox1.Location = new System.Drawing.Point(31, 12);
+            this.iconPictureBox1.IconSize = 123;
+            this.iconPictureBox1.Location = new System.Drawing.Point(46, 44);
             this.iconPictureBox1.Name = "iconPictureBox1";
-            this.iconPictureBox1.Size = new System.Drawing.Size(109, 99);
+            this.iconPictureBox1.Size = new System.Drawing.Size(151, 123);
             this.iconPictureBox1.TabIndex = 0;
             this.iconPictureBox1.TabStop = false;
             // 

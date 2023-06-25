@@ -97,6 +97,7 @@
     <Compile Include="Usuarios\frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilidades\ComboBoxOption.cs" />
     <Compile Include="Ventas\frmDetallesVentas.cs">
       <SubType>Form</SubType>
     </Compile>

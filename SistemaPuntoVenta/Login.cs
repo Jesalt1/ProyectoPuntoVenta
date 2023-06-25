@@ -65,7 +65,8 @@ namespace SistemaPuntoVenta
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            textBoxUser.Text= "101010";
+            textBoxPassword.Text= "123";
         }
     }
 }

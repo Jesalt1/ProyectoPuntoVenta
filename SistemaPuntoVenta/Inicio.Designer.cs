@@ -292,24 +292,24 @@
         }
 
         #endregion
-
+        private System.Windows.Forms.Panel panelChildForm;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label UsuarioLabel;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.MenuStrip menuStripTitle;
         private FontAwesome.Sharp.IconMenuItem iconMenuItemUsuarios;
         private FontAwesome.Sharp.IconMenuItem iconMenuItemMantenedor;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItemCategoria;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItemProductos;
         private FontAwesome.Sharp.IconMenuItem iconMenuItemVentas;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItemRegistrarVentas;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItemDetallesVenta;
         private FontAwesome.Sharp.IconMenuItem iconMenuItemCompras;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItemRegistrarCompras;
+        private FontAwesome.Sharp.IconMenuItem iconMenuItemDetallesCompras;
         private FontAwesome.Sharp.IconMenuItem iconMenuItemClientes;
         private FontAwesome.Sharp.IconMenuItem iconMenuItemProveedor;
         private FontAwesome.Sharp.IconMenuItem iconMenuItemReportes;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panelChildForm;
-        private System.Windows.Forms.Label UsuarioLabel;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItemCategoria;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItemProductos;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItemRegistrarVentas;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItemDetallesVenta;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItemRegistrarCompras;
-        private FontAwesome.Sharp.IconMenuItem iconMenuItemDetallesCompras;
+        private System.Windows.Forms.MenuStrip menuStripTitle;
     }
 }

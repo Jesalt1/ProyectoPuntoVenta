@@ -1,9 +1,9 @@
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\bin\Debug\Capa_Datos.dll
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\bin\Debug\Capa_Datos.pdb
-C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\obj\Debug\Capa_Datos.csproj.AssemblyReference.cache
-C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\obj\Debug\Capa_Datos.csproj.CoreCompileInputs.cache
-C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\obj\Debug\Capa_Datos.dll
-C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\obj\Debug\Capa_Datos.pdb
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\bin\Debug\Capa_Entidad.dll
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\bin\Debug\Capa_Entidad.pdb
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\obj\Debug\Capa_Datos.csproj.AssemblyReference.cache
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\obj\Debug\Capa_Datos.csproj.CoreCompileInputs.cache
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\obj\Debug\Capa_Datos.csproj.CopyComplete
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\obj\Debug\Capa_Datos.dll
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\Capa_Datos\obj\Debug\Capa_Datos.pdb

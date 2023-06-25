@@ -1,3 +1,5 @@
+
+
 --Creacion de las tablas necesarias para llevar a cabo el poryecto punto de venta
 GO
 
@@ -137,8 +139,84 @@ FechaRegistro datetime default getdate()
 go
 
 
+--Creando procedimientos para realizar diferentes tipos de consultas y operaciones a la base de datos
+
+--Nos permite registrar un usuarios y realiza la validacion y verificar que no hayan datos de ID iguales
+go
+
+
+create PROC SP_REGISTRARUSUARIO(
+@Documento varchar(50),
+@NombreCompleto varchar(100),
+@Correo varchar(100),
+@Clave varchar(100),
+@IdRol int,
+@Estado bit,
+@IdUsuarioResultado int output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	set @IdUsuarioResultado = 0
+	set @Mensaje = ''
+
+
+	if not exists(select * from USUARIO where Documento = @Documento)
+	begin
+		insert into usuario(Documento,NombreCompleto,Correo,Clave,IdRol,Estado) values
+		(@Documento,@NombreCompleto,@Correo,@Clave,@IdRol,@Estado)
+
+		set @IdUsuarioResultado = SCOPE_IDENTITY()
+		
+	end
+	else
+		set @Mensaje = 'No se puede repetir el documento para más de un usuario'
+
+
+end
+
+
+--Permite la edicion de un usuario ya existente y realiza la verificacion para que los nuevos datos no entren en conflicto con los ya existentes
+go
+
+create PROC SP_EDITARUSUARIO(
+@IdUsuario int,
+@Documento varchar(50),
+@NombreCompleto varchar(100),
+@Correo varchar(100),
+@Clave varchar(100),
+@IdRol int,
+@Estado bit,
+@Respuesta bit output,
+@Mensaje varchar(500) output
+)
+as
+begin
+	set @Respuesta = 0
+	set @Mensaje = ''
+
+
+	if not exists(select * from USUARIO where Documento = @Documento and idusuario != @IdUsuario)
+	begin
+		update  usuario set
+		Documento = @Documento,
+		NombreCompleto = @NombreCompleto,
+		Correo = @Correo,
+		Clave = @Clave,
+		IdRol = @IdRol,
+		Estado = @Estado
+		where IdUsuario = @IdUsuario
+
+		set @Respuesta = 1
+		
+	end
+	else
+		set @Mensaje = 'No se puede repetir el documento para más de un usuario'
+
+
+end
+
 --Datos ingresados a la base de datos para pruebas y acceso
-GO
 
  insert into rol (Descripcion)
  values('ADMINISTRADOR')
@@ -150,4 +228,28 @@ GO
 
  GO
 
- 
+  insert into PERMISO(IdRol,NombreMenu) values
+  (1,'iconMenuItemUsuarios'),
+  (1,'iconMenuItemMantenedor'),
+  (1,'iconMenuItemVentas'),
+  (1,'iconMenuItemCompras'),
+  (1,'iconMenuItemClientes'),
+  (1,'iconMenuItemProveedor'),
+  (1,'iconMenuItemReportes')
+
+  GO
+
+  insert into PERMISO(IdRol,NombreMenu) values
+  (2,'iconMenuItemVentas'),
+  (2,'iconMenuItemCompras'),
+  (2,'iconMenuItemClientes'),
+  (2,'iconMenuItemProveedor')
+
+  GO
+
+ ---consultas de tablas
+ select * from ROL
+
+ select * from USUARIO
+
+ select * from PERMISO

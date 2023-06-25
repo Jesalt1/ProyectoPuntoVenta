@@ -87,7 +87,7 @@ namespace SistemaPuntoVenta
         //eventos de click en los diferentes botones en la cual los usuarios podran abrir los formularios
         private void iconMenuItemUsuarios_Click(object sender, EventArgs e)
         {
-            AbrirFormularios((IconMenuItem) sender, new frmUsuarios() );
+            AbrirFormularios((IconMenuItem)sender, new frmUsuarios());
         }
 
         private void iconMenuItemCategoria_Click(object sender, EventArgs e)

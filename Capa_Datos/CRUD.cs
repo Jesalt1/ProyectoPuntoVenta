@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace Capa_Datos
 {
-    public interface CRUD
+    public interface CRUD<T>
     {
-        List<object> Listar();
+        List<T> Listar();
+        int Create(T item);
+        bool Update(T item);
+        void Delete(T item);
     }
 }
