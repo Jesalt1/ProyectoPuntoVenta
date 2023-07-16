@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using CapaEntidad;
+using System.Windows.Forms;
 
 namespace Capa_Datos
 {
@@ -21,6 +22,15 @@ namespace Capa_Datos
 
             using (SqlConnection conexion = new SqlConnection(ConexionBD.cadena))//abrimos la conexion con la base de datos desde la configuaracion inicial
             {
+                //manejo de excepcion para verificar que exista conexion con la base de datos
+                try
+                {
+                    //conexion.Open();
+                }catch(Exception ex)
+                {
+                    MessageBox.Show("no conecxion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                }
                 try
                 {
                     //Comando SQL con la cual llamaremos los datos de usuario y se guardaran en una lista del tipo usuario

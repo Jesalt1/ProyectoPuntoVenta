@@ -106,6 +106,8 @@ namespace SistemaPuntoVenta.Usuarios
 
             foreach (ComboBoxOption oc in cborol.Items)
             {
+                Console.WriteLine(Convert.ToInt32(oc.value) == Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["IdRol"].Value));
+
 
                 if (Convert.ToInt32(oc.value) == Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["IdRol"].Value))
                 {
@@ -118,12 +120,25 @@ namespace SistemaPuntoVenta.Usuarios
 
             foreach (ComboBoxOption oc in cboestado.Items)
             {
-                if (Convert.ToInt32(oc.value) == Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["EstadoValor"].Value))
+                try 
                 {
-                    int indice_combo = cboestado.Items.IndexOf(oc);
-                    cboestado.SelectedIndex = indice_combo;
-                    break;
+                    Console.WriteLine("Aqui esta lo que vale indice  " +indice);
+                    //Console.WriteLine(Convert.ToInt32(oc.value) == Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value));
+
+                    bool bol = Convert.ToInt32(oc.value).Equals(Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value));
+
+                    if (Convert.ToInt32(oc.value).Equals(Convert.ToInt32(dgvdata.Rows[indice].Cells["EstadoValor"].Value)))
+                    {
+                        int indice_combo = cboestado.Items.IndexOf(oc);
+                        cboestado.SelectedIndex = indice_combo;
+                        break;
+                    }
                 }
+                catch(Exception ex)
+                {
+
+                }
+                
             }
         }
 
@@ -169,11 +184,11 @@ namespace SistemaPuntoVenta.Usuarios
                 {
 
                     dgvdata.Rows.Add(new object[] {"",idusuariogenerado,txtdocumento.Text,txtnombrecompleto.Text,txtcorreo.Text,txtclave.Text,
-                ((ComboBoxOption)cborol.SelectedItem).value.ToString(),
-                ((ComboBoxOption)cborol.SelectedItem).text.ToString(),
-                ((ComboBoxOption)cboestado.SelectedItem).value.ToString(),
-                ((ComboBoxOption)cboestado.SelectedItem).text.ToString()
-                });
+                    ((ComboBoxOption)cborol.SelectedItem).value.ToString(),
+                    ((ComboBoxOption)cborol.SelectedItem).text.ToString(),
+                    ((ComboBoxOption)cboestado.SelectedItem).value.ToString(),
+                    ((ComboBoxOption)cboestado.SelectedItem).text.ToString()
+                    });
 
                     Clean();
                 }

@@ -19,6 +19,7 @@ namespace Capa_Datos
             {
                 try
                 {
+                    
                     //Comando SQL con la cual llamaremos los datos de usuario y se guardaran en una lista del tipo permisos
                     //se creara una tabla que es la union del rol, permiso y usuario
                     StringBuilder query = new StringBuilder();
