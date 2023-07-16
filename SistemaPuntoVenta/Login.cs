@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SistemaPuntoVenta
-{
+{//hola lenin
     public partial class Login : Form
     {
         public Login()
