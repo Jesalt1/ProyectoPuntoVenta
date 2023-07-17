@@ -10,8 +10,8 @@ namespace Capa_Datos
     public interface CRUD<T>
     {
         List<T> Listar();
-        int Create(T item);
-        bool Update(T item);
-        void Delete(T item);
+        int Create(T item, out string mensaje);
+        bool Update(T item, out string mensaje);
+        bool Delete(T item, out string mensaje);
     }
 }

@@ -35,9 +35,13 @@ namespace SistemaPuntoVenta
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            //se cambia el texto del label con el nombre del usuario con el se ha iniciado sesion 
-            UsuarioLabel.Text = usuarioActual.NombreCompleto.ToString();
+            //atributos para establecer el tamaño maximo de la ventana independientemente del monitor y resolucion que se use
+            this.MaximumSize = SystemInformation.PrimaryMonitorMaximizedWindowSize;
+            this.WindowState = FormWindowState.Maximized;
 
+            //se cambia el texto del label con el nombre del usuario con el se ha iniciado sesion 
+            toolStripTextBoxUser.Text = usuarioActual.NombreCompleto.ToString();
+            
             PermisosDeUsuario();
         }
 
@@ -76,7 +80,7 @@ namespace SistemaPuntoVenta
             foreach (IconMenuItem iconMenuItem in menuStrip.Items)
             {
                 bool habilitarPermisos = permisos.Any(m => m.NombreMenu == iconMenuItem.Name);
-                Console.WriteLine(habilitarPermisos);
+
                 if(habilitarPermisos==false)
                 {
                     iconMenuItem.Visible = false;

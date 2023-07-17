@@ -22,15 +22,6 @@ namespace Capa_Datos
 
             using (SqlConnection conexion = new SqlConnection(ConexionBD.cadena))//abrimos la conexion con la base de datos desde la configuaracion inicial
             {
-                //manejo de excepcion para verificar que exista conexion con la base de datos
-                try
-                {
-                    //conexion.Open();
-                }catch(Exception ex)
-                {
-                    MessageBox.Show("no conecxion", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
-                }
                 try
                 {
                     //Comando SQL con la cual llamaremos los datos de usuario y se guardaran en una lista del tipo usuario
@@ -78,10 +69,10 @@ namespace Capa_Datos
 
         }
 
-        public int Create(Usuario item)
+        public int Create(Usuario item, out string Mensaje)
         {
             int idusuariogenerado = 0;
-            //Mensaje = string.Empty;
+            Mensaje = string.Empty;
 
 
             try
@@ -106,7 +97,7 @@ namespace Capa_Datos
                     cmd.ExecuteNonQuery();
 
                     idusuariogenerado = Convert.ToInt32(cmd.Parameters["IdUsuarioResultado"].Value);
-                   // Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
                 }
 
@@ -114,7 +105,7 @@ namespace Capa_Datos
             catch (Exception ex)
             {
                 idusuariogenerado = 0;
-               //Mensaje = ex.Message;
+                Mensaje = ex.Message;
             }
 
 
@@ -122,15 +113,48 @@ namespace Capa_Datos
             return idusuariogenerado;
         }
 
-        public void Delete(Usuario item)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool Update(Usuario item)
+        public bool Delete(Usuario item, out string mensaje)
         {
             bool respuesta = false;
-           // Mensaje = string.Empty;
+            mensaje = string.Empty;
+
+
+            try
+            {
+
+                using (SqlConnection oconexion = new SqlConnection(ConexionBD.cadena))
+                {
+
+                    //los parametros se obtienen del id de la fila seleccionada en el DatGrid para realizar la eliminacion
+                    SqlCommand cmd = new SqlCommand("SP_ELIMINARUSUARIO", oconexion);
+                    cmd.Parameters.AddWithValue("IdUsuario", item.IdUsuario);
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    oconexion.Open();
+
+                    cmd.ExecuteNonQuery();
+
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
+                    mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                respuesta = false;
+                mensaje = ex.Message;
+            }
+
+            return respuesta;
+        }
+
+        public bool Update(Usuario item, out string mensaje)
+        {
+            bool respuesta = false;
+            mensaje = string.Empty;
 
 
             try
@@ -156,7 +180,7 @@ namespace Capa_Datos
                     cmd.ExecuteNonQuery();
 
                     respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
-                    //Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
+                    mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
                 }
 
@@ -164,13 +188,17 @@ namespace Capa_Datos
             catch (Exception ex)
             {
                 respuesta = false;
-                //Mensaje = ex.Message;
+                mensaje = ex.Message;
             }
 
 
 
             return respuesta;
         }
+
     }
+
+
+
 }
 
