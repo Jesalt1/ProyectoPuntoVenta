@@ -97,7 +97,6 @@ namespace SistemaPuntoVenta.Usuarios
         {
             foreach (DataGridViewColumn columna in dgvdata.Columns)
             {
-                Console.WriteLine("la columna se llama "+ columna.Name+" el header es " + columna.HeaderText);
                 if (columna.Visible)
                 {
                     cbobusqueda.Items.Add(new ComboBoxOption() { value =columna.Name, text = columna.HeaderText });
@@ -312,7 +311,7 @@ namespace SistemaPuntoVenta.Usuarios
             txtconfirmarclave.Text = "";
             cborol.SelectedIndex = 0;
             cboestado.SelectedIndex = 0;
-
+            idTmp = 0;
             txtdocumento.Select();
 
         }

@@ -10,12 +10,13 @@ using System.Windows.Forms;
 
 namespace Capa_Datos
 {
-    public class CD_Categorias : CRUD<Categoria>
+    public class CD_Productos : CRUD<Producto>
     {
-        public int Create(Categoria item, out string mensaje)
+        public int Create(Producto item, out string mensaje)
         {
-            int idCategoriagenerado = 0;
+            int idProductogenerado = 0;
             mensaje = string.Empty;
+
 
             try
             {
@@ -23,8 +24,11 @@ namespace Capa_Datos
                 using (SqlConnection oconexion = new SqlConnection(ConexionBD.cadena))
                 {
 
-                    SqlCommand cmd = new SqlCommand("SP_RegistrarCategoria", oconexion);
+                    SqlCommand cmd = new SqlCommand("sp_RegistrarProducto", oconexion);
+                    cmd.Parameters.AddWithValue("Codigo", item.Codigo);
+                    cmd.Parameters.AddWithValue("Nombre", item.Nombre);
                     cmd.Parameters.AddWithValue("Descripcion", item.Descripcion);
+                    cmd.Parameters.AddWithValue("IdCategoria", item.oCategoria.IdCategoria);
                     cmd.Parameters.AddWithValue("Estado", item.Estado);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
@@ -34,33 +38,38 @@ namespace Capa_Datos
 
                     cmd.ExecuteNonQuery();
 
-                    idCategoriagenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
-                    mensaje = cmd.Parameters["mensaje"].Value.ToString();
+                    idProductogenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
+                    mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
                 }
 
             }
             catch (Exception ex)
             {
-                idCategoriagenerado = 0;
+                idProductogenerado = 0;
                 mensaje = ex.Message;
             }
 
-            return idCategoriagenerado;
+
+
+            return idProductogenerado;
         }
 
-        public bool Delete(Categoria item, out string mensaje)
+        public bool Delete(Producto item, out string mensaje)
         {
+
             bool respuesta = false;
             mensaje = string.Empty;
+
             try
             {
 
                 using (SqlConnection oconexion = new SqlConnection(ConexionBD.cadena))
                 {
-                    SqlCommand cmd = new SqlCommand("sp_EliminarCategoria", oconexion);
-                    cmd.Parameters.AddWithValue("IdCategoria", item.IdCategoria);
-                    cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    SqlCommand cmd = new SqlCommand("SP_EliminarProducto", oconexion);
+                    cmd.Parameters.AddWithValue("IdProducto", item.IdProducto);
+                    cmd.Parameters.Add("Respuesta", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -68,7 +77,7 @@ namespace Capa_Datos
 
                     cmd.ExecuteNonQuery();
 
-                    respuesta = Convert.ToBoolean(cmd.Parameters["Resultado"].Value);
+                    respuesta = Convert.ToBoolean(cmd.Parameters["Respuesta"].Value);
                     mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
                 }
@@ -83,18 +92,18 @@ namespace Capa_Datos
             return respuesta;
         }
 
-        public List<Categoria> Listar()
+        public List<Producto> Listar()
         {
-            List<Categoria> lista = new List<Categoria>();
+            List<Producto> lista = new List<Producto>();
 
             using (SqlConnection oconexion = new SqlConnection(ConexionBD.cadena))
             {
 
                 try
                 {
-
                     StringBuilder query = new StringBuilder();
-                    query.AppendLine("select IdCategoria,Descripcion,Estado from CATEGORIA");
+                    query.AppendLine("select IdProducto, Codigo, Nombre, p.Descripcion,c.IdCategoria,c.Descripcion[DescripcionCategoria],Stock,PrecioCompra,PrecioVenta,p.Estado  from PRODUCTO p");
+                    query.AppendLine("inner join CATEGORIA c on c.IdCategoria = p.IdCategoria");
                     SqlCommand cmd = new SqlCommand(query.ToString(), oconexion);
                     cmd.CommandType = CommandType.Text;
 
@@ -104,27 +113,36 @@ namespace Capa_Datos
                     {
                         while (dr.Read())
                         {
-
-                            lista.Add(new Categoria()
+                            lista.Add(new Producto()
                             {
-                                IdCategoria = Convert.ToInt32(dr["IdCategoria"]),
+                                IdProducto = Convert.ToInt32(dr["IdProducto"]),
+                                Codigo = dr["Codigo"].ToString(),
+                                Nombre = dr["Nombre"].ToString(),
                                 Descripcion = dr["Descripcion"].ToString(),
+                                oCategoria = new Categoria() { IdCategoria = Convert.ToInt32(dr["IdCategoria"]), Descripcion = dr["DescripcionCategoria"].ToString() },
+                                Stock = Convert.ToInt32(dr["Stock"].ToString()),
+                                PrecioCompra = Convert.ToDecimal(dr["PrecioCompra"].ToString()),
+                                PrecioVenta = Convert.ToDecimal(dr["PrecioVenta"].ToString()),
                                 Estado = Convert.ToBoolean(dr["Estado"])
                             });
+
                         }
+
                     }
+
+
                 }
                 catch (Exception ex)
                 {
 
-                    lista = new List<Categoria>();
+                    lista = new List<Producto>();
                 }
             }
 
             return lista;
         }
 
-        public bool Update(Categoria item, out string mensaje)
+        public bool Update(Producto item, out string mensaje)
         {
             bool respuesta = false;
             mensaje = string.Empty;
@@ -136,9 +154,12 @@ namespace Capa_Datos
                 using (SqlConnection oconexion = new SqlConnection(ConexionBD.cadena))
                 {
 
-                    SqlCommand cmd = new SqlCommand("sp_EditarCategoria", oconexion);
-                    cmd.Parameters.AddWithValue("IdCategoria", item.IdCategoria);
+                    SqlCommand cmd = new SqlCommand("sp_ModificarProducto", oconexion);
+                    cmd.Parameters.AddWithValue("IdProducto", item.IdProducto);
+                    cmd.Parameters.AddWithValue("Codigo", item.Codigo);
+                    cmd.Parameters.AddWithValue("Nombre", item.Nombre);
                     cmd.Parameters.AddWithValue("Descripcion", item.Descripcion);
+                    cmd.Parameters.AddWithValue("IdCategoria", item.oCategoria.IdCategoria);
                     cmd.Parameters.AddWithValue("Estado", item.Estado);
                     cmd.Parameters.Add("Resultado", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 500).Direction = ParameterDirection.Output;
