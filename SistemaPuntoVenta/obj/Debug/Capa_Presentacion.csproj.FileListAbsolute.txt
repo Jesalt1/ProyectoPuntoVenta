@@ -25,3 +25,4 @@ C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\Sistem
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Ventas.frmDetallesVentas.resources
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Ventas.frmRegistrarVentas.resources
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Compras.frmDetallesCompras.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Clientes.frmClientes.resources

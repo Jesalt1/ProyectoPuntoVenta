@@ -11,6 +11,7 @@ using Capa_Datos;
 using Capa_Negocio;
 using CapaEntidad;
 using FontAwesome.Sharp;
+using SistemaPuntoVenta.Clientes;
 using SistemaPuntoVenta.Compras;
 using SistemaPuntoVenta.Productos;
 using SistemaPuntoVenta.Usuarios;
@@ -124,6 +125,9 @@ namespace SistemaPuntoVenta
             AbrirFormularios((IconMenuItem)sender, new frmDetallesCompras());
         }
 
-
+        private void iconMenuItemClientes_Click(object sender, EventArgs e)
+        {
+            AbrirFormularios((IconMenuItem)sender, new frmClientes());
+        }
     }
 }

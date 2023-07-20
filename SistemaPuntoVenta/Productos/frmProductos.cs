@@ -219,6 +219,39 @@ namespace SistemaPuntoVenta.Productos
             }
         }
 
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            string columnaFiltro = ((ComboBoxOption)cbobusqueda.SelectedItem).value.ToString();
+            string columnaFiltroEstado = ((ComboBoxOption)cbobusqueda.Items[4]).value.ToString();
+
+            //filtrara si lls caracteres ingresados estan dentro de los valores de las columnas
+            if ((dgvdata.Rows.Count > 0) && !(columnaFiltro.Equals(columnaFiltroEstado)))
+            {
+                foreach (DataGridViewRow row in dgvdata.Rows)
+                {
+                    row.Visible = row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()) ? true : false;
+                }
+            }
+            //filtrara solo y solo si la palabra estado (activo/inactivo) son iguales a los valores de las columnas
+            else if ((dgvdata.Rows.Count > 0) && (columnaFiltro.Equals(columnaFiltroEstado)))
+            {
+                foreach (DataGridViewRow row in dgvdata.Rows)
+                {
+                    row.Visible = row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Equals(txtbusqueda.Text.Trim().ToUpper()) ? true : false;
+                }
+            }
+        }
+
+        private void btnlimpiarbuscador_Click(object sender, EventArgs e)
+        {
+            //limpia la caja de texto de busca filtrada y restablece todos los valores del dataGrid
+            txtbusqueda.Text = string.Empty;
+            foreach (DataGridViewRow row in dgvdata.Rows)
+            {
+                row.Visible = true;
+            }
+        }
+
         #endregion
 
         //metodos extras
@@ -243,7 +276,7 @@ namespace SistemaPuntoVenta.Productos
             txtnombre.Text = dgvdata.Rows[indice].Cells["Nombre"].Value.ToString();
             txtdescripcion.Text = dgvdata.Rows[indice].Cells["Descripcion"].Value.ToString();
 
-            idTmp = Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["Id"].Value);
+            idTmp = Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["Id"].Value.ToString());
 
             foreach (ComboBoxOption oc in cboestado.Items)
             {
@@ -266,7 +299,8 @@ namespace SistemaPuntoVenta.Productos
 
 
 
-        #endregion   
+        #endregion
+
         
     }
 }

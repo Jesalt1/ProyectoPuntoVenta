@@ -8,35 +8,31 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Forms;
 
-namespace SistemaPuntoVenta.Usuarios
+namespace SistemaPuntoVenta.Clientes
 {
-    public partial class frmUsuarios : Form
+    public partial class frmClientes : Form
     {
-        private int indice;
-        private int idTmp;
-        public frmUsuarios()
+        int idTmp;
+        int indice;
+        public frmClientes()
         {
             InitializeComponent();
         }
 
-        private void frmUsuarios_Load(object sender, EventArgs e)
+        private void frmClientes_Load(object sender, EventArgs e)
         {
             ComboBoxFill();
             LoadDGV();
             FilterSearch();
         }
 
-        //Evento para seleccionar toda una fila al momento de hacer click en ella
         private void dgvdata_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex >= 0 && e.RowIndex < dgvdata.Rows.Count)
             {
 
@@ -61,32 +57,18 @@ namespace SistemaPuntoVenta.Usuarios
             cboestado.ValueMember = "value";
             cboestado.SelectedIndex = 0;
 
-            //rellenar combobox con los rooles disponibles
-            List<Rol> listaRol = new RolNeg().Listar();
-
-            foreach (Rol item in listaRol)
-            {
-                cborol.Items.Add(new ComboBoxOption() { value = item.IdRol, text = item.Descripcion });
-            }
-            cborol.DisplayMember = "Text";
-            cborol.ValueMember = "value";
-            cborol.SelectedIndex = 0;
-
         }
 
         //Cargar la listas DataGrifView al momento de cargar el frm con los usuarios ya registrados en la base de datos
         private void LoadDGV()
         {
-            List<Usuario> listaUsuario = new UsuarioDT().Listar();
+            List<Cliente> lista = new ClientesNeg().Listar();
 
-            foreach (Usuario item in listaUsuario)
+            foreach (Cliente item in lista)
             {
-
-                dgvdata.Rows.Add(new object[] {item.IdUsuario,item.Documento,item.NombreCompleto,item.Correo,item.Clave,
-                    item.oRol.IdRol,
-                    item.oRol.Descripcion,
+                dgvdata.Rows.Add(new object[] {item.IdCliente,item.Documento,item.NombreCompleto,item.Correo,item.Telefono,
                     item.Estado == true ? 1 : 0 ,
-                    item.Estado == true ? "Activo" : "Inactivo"
+                    item.Estado == true ? "Activo" : "No Activo"
                 });
             }
 
@@ -99,7 +81,7 @@ namespace SistemaPuntoVenta.Usuarios
             {
                 if (columna.Visible)
                 {
-                    cbobusqueda.Items.Add(new ComboBoxOption() { value =columna.Name, text = columna.HeaderText });
+                    cbobusqueda.Items.Add(new ComboBoxOption() { value = columna.Name, text = columna.HeaderText });
                 }
             }
             cbobusqueda.DisplayMember = "text";
@@ -110,35 +92,32 @@ namespace SistemaPuntoVenta.Usuarios
 
         #endregion
 
-        //region botones
+        //Metodos botones
         #region
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
 
-            Usuario objusuario = new Usuario()
+            Cliente obj = new Cliente()
             {
-                IdUsuario = idTmp,
+                IdCliente = idTmp,
                 Documento = txtdocumento.Text,
                 NombreCompleto = txtnombrecompleto.Text,
                 Correo = txtcorreo.Text,
-                Clave = txtclave.Text,
-                oRol = new Rol() { IdRol = Convert.ToInt32(((ComboBoxOption)cborol.SelectedItem).value) },
+                Telefono = txtTelefono.Text,
                 Estado = Convert.ToInt32(((ComboBoxOption)cboestado.SelectedItem).value) == 1 ? true : false
             };
 
-            if (objusuario.IdUsuario == 0)//si el id es 0 se abriran los procesos para generar un nuevo usuario
+            if (obj.IdCliente == 0)
             {
-                int idusuariogenerado = new UsuarioNeg().Create(objusuario, out mensaje);
+                int idgenerado = new ClientesNeg().Create(obj, out mensaje);
 
-                if (idusuariogenerado != 0)
+                if (idgenerado != 0)
                 {
 
-                    dgvdata.Rows.Add(new object[] {idusuariogenerado,txtdocumento.Text,txtnombrecompleto.Text,txtcorreo.Text,txtclave.Text,
-                    ((ComboBoxOption)cborol.SelectedItem).value.ToString(),
-                    ((ComboBoxOption)cborol.SelectedItem).text.ToString(),
-                    ((ComboBoxOption)cboestado.SelectedItem).value.ToString(),
-                    ((ComboBoxOption)cboestado.SelectedItem).text.ToString()
+                    dgvdata.Rows.Add(new object[] {idgenerado,txtdocumento.Text,txtnombrecompleto.Text,txtcorreo.Text,txtTelefono.Text,
+                        ((ComboBoxOption)cboestado.SelectedItem).value.ToString(),
+                        ((ComboBoxOption)cboestado.SelectedItem).text.ToString()
                     });
 
                     Limpiar();
@@ -150,24 +129,20 @@ namespace SistemaPuntoVenta.Usuarios
 
 
             }
-            else//si existe el id del usuario se ejecuta los metodos para editar el usuario en cuestion
+            else
             {
-                bool resultado = new UsuarioNeg().Update(objusuario, out mensaje);
+                bool resultado = new ClientesNeg().Update(obj, out mensaje);
 
-                if (resultado == true)
+                if (resultado)
                 {
-
                     DataGridViewRow row = dgvdata.Rows[indice];
                     row.Cells["Id"].Value = idTmp;
                     row.Cells["Documento"].Value = txtdocumento.Text;
                     row.Cells["NombreCompleto"].Value = txtnombrecompleto.Text;
                     row.Cells["Correo"].Value = txtcorreo.Text;
-                    row.Cells["Clave"].Value = txtclave.Text;
-                    row.Cells["IdRol"].Value = ((ComboBoxOption)cborol.SelectedItem).value.ToString();
-                    row.Cells["Rol"].Value = ((ComboBoxOption)cborol.SelectedItem).text.ToString();
+                    row.Cells["Telefono"].Value = txtTelefono.Text;
                     row.Cells["EstadoValor"].Value = ((ComboBoxOption)cboestado.SelectedItem).value.ToString();
                     row.Cells["Estado"].Value = ((ComboBoxOption)cboestado.SelectedItem).text.ToString();
-
                     Limpiar();
                 }
                 else
@@ -184,26 +159,23 @@ namespace SistemaPuntoVenta.Usuarios
 
         private void btneliminar_Click(object sender, EventArgs e)
         {
-            //se obtiene el Id de la fila seleccionada y se envia como parametro para hacer una consulta a la base de datos
-            //y al encontrar coincidencia se procede a eliminar el usuario
-            //se utiliza un dialogresult para validar el borrado y proceder 
-            //al terminar e eliminar devolvera un valor booleano que confirmara el exito de la operacion
             if (idTmp != 0)
             {
-                if (MessageBox.Show("¿Desea eliminar el usuario", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("¿Desea eliminar el cliente", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     string mensaje = string.Empty;
-                    Usuario objusuario = new Usuario()
+                    Cliente obj = new Cliente()
                     {
-                        IdUsuario = idTmp
+                        IdCliente = idTmp
                     };
 
-                    bool respuesta = new UsuarioNeg().Delete(objusuario, out mensaje);
+                    bool respuesta = new ClientesNeg().Delete(obj, out mensaje);
 
                     if (respuesta)
                     {
-                        dgvdata.Rows.RemoveAt(Convert.ToInt32(indice));
+                        dgvdata.Rows.RemoveAt(indice);
+                        Limpiar();
                     }
                     else
                     {
@@ -217,25 +189,16 @@ namespace SistemaPuntoVenta.Usuarios
         private void btnbuscar_Click(object sender, EventArgs e)
         {
             string columnaFiltro = ((ComboBoxOption)cbobusqueda.SelectedItem).value.ToString();
-            string columnaFiltroEstado = ((ComboBoxOption)cbobusqueda.Items[4]).value.ToString();
 
-            //filtrara si lls caracteres ingresados estan dentro de los valores de las columnas
-            if ((dgvdata.Rows.Count > 0) && !(columnaFiltro.Equals(columnaFiltroEstado)))
+            if (dgvdata.Rows.Count > 0)
             {
                 foreach (DataGridViewRow row in dgvdata.Rows)
                 {
                     row.Visible = row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Contains(txtbusqueda.Text.Trim().ToUpper()) ? true : false;
-                }
-            }
-            //filtrara solo y solo si la palabra estado (activo/inactivo) son iguales a los valores de las columnas
-            else if ((dgvdata.Rows.Count > 0) && (columnaFiltro.Equals(columnaFiltroEstado)))
-            {
-                foreach (DataGridViewRow row in dgvdata.Rows)
-                {
-                    row.Visible = row.Cells[columnaFiltro].Value.ToString().Trim().ToUpper().Equals(txtbusqueda.Text.Trim().ToUpper()) ? true : false;
-                }
-            }
 
+
+                }
+            }
         }
 
         private void btnlimpiarbuscador_Click(object sender, EventArgs e)
@@ -247,7 +210,6 @@ namespace SistemaPuntoVenta.Usuarios
                 row.Visible = true;
             }
         }
-
         #endregion
 
         //Metodos internos
@@ -258,27 +220,12 @@ namespace SistemaPuntoVenta.Usuarios
         private void FillTextBox(DataGridViewCellEventArgs e)
         {
 
+
+            idTmp = Convert.ToInt32(dgvdata.Rows[indice].Cells["Id"].Value);
             txtdocumento.Text = dgvdata.Rows[e.RowIndex].Cells["Documento"].Value.ToString();
             txtnombrecompleto.Text = dgvdata.Rows[e.RowIndex].Cells["NombreCompleto"].Value.ToString();
             txtcorreo.Text = dgvdata.Rows[e.RowIndex].Cells["Correo"].Value.ToString();
-            txtclave.Text = dgvdata.Rows[e.RowIndex].Cells["Clave"].Value.ToString();
-            txtconfirmarclave.Text = dgvdata.Rows[e.RowIndex].Cells["Clave"].Value.ToString();
-            idTmp = Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["Id"].Value);
-
-
-            foreach (ComboBoxOption oc in cborol.Items)
-            {
-                Console.WriteLine(Convert.ToInt32(oc.value) == Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["IdRol"].Value));
-
-
-                if (Convert.ToInt32(oc.value) == Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["IdRol"].Value))
-                {
-                    int indice_combo = cborol.Items.IndexOf(oc);
-                    cborol.SelectedIndex = indice_combo;
-                    break;
-                }
-            }
-
+            txtTelefono.Text = dgvdata.Rows[e.RowIndex].Cells["Telefono"].Value.ToString();
 
             foreach (ComboBoxOption oc in cboestado.Items)
             {
@@ -306,19 +253,15 @@ namespace SistemaPuntoVenta.Usuarios
             txtdocumento.Text = "";
             txtnombrecompleto.Text = "";
             txtcorreo.Text = "";
-            txtclave.Text = "";
-            txtconfirmarclave.Text = "";
-            cborol.SelectedIndex = 0;
+            txtTelefono.Text = "";
             cboestado.SelectedIndex = 0;
             idTmp = 0;
             txtdocumento.Select();
 
         }
 
-
-
         #endregion
 
-       
+
     }
 }

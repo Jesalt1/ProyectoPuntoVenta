@@ -43,9 +43,9 @@
             this.iconMenuItemProveedor = new FontAwesome.Sharp.IconMenuItem();
             this.iconMenuItemReportes = new FontAwesome.Sharp.IconMenuItem();
             this.menuStripTitle = new System.Windows.Forms.MenuStrip();
+            this.toolStripTextBoxUser = new System.Windows.Forms.ToolStripTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
-            this.toolStripTextBoxUser = new System.Windows.Forms.ToolStripTextBox();
             this.menuStrip.SuspendLayout();
             this.menuStripTitle.SuspendLayout();
             this.SuspendLayout();
@@ -200,6 +200,7 @@
             this.iconMenuItemClientes.Size = new System.Drawing.Size(122, 80);
             this.iconMenuItemClientes.Text = "Clientes";
             this.iconMenuItemClientes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconMenuItemClientes.Click += new System.EventHandler(this.iconMenuItemClientes_Click);
             // 
             // iconMenuItemProveedor
             // 
@@ -240,6 +241,16 @@
             this.menuStripTitle.TabIndex = 1;
             this.menuStripTitle.Text = "menuStrip2";
             // 
+            // toolStripTextBoxUser
+            // 
+            this.toolStripTextBoxUser.BackColor = System.Drawing.Color.SteelBlue;
+            this.toolStripTextBoxUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.toolStripTextBoxUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.toolStripTextBoxUser.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.toolStripTextBoxUser.Name = "toolStripTextBoxUser";
+            this.toolStripTextBoxUser.ReadOnly = true;
+            this.toolStripTextBoxUser.Size = new System.Drawing.Size(100, 55);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -259,16 +270,6 @@
             this.panelChildForm.Name = "panelChildForm";
             this.panelChildForm.Size = new System.Drawing.Size(1032, 307);
             this.panelChildForm.TabIndex = 3;
-            // 
-            // toolStripTextBoxUser
-            // 
-            this.toolStripTextBoxUser.BackColor = System.Drawing.Color.SteelBlue;
-            this.toolStripTextBoxUser.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.toolStripTextBoxUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.toolStripTextBoxUser.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.toolStripTextBoxUser.Name = "toolStripTextBoxUser";
-            this.toolStripTextBoxUser.ReadOnly = true;
-            this.toolStripTextBoxUser.Size = new System.Drawing.Size(100, 55);
             // 
             // Inicio
             // 

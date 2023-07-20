@@ -53,6 +53,12 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clientes\frmClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clientes\frmClientes.Designer.cs">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Compras\frmDetallesCompras.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     <Compile Include="Ventas\frmRegistrarVentas.Designer.cs">
       <DependentUpon>frmRegistrarVentas.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Clientes\frmClientes.resx">
+      <DependentUpon>frmClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmDetallesCompras.resx">
       <DependentUpon>frmDetallesCompras.cs</DependentUpon>
     </EmbeddedResource>
@@ -175,7 +184,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Clientes\" />
     <Folder Include="Proveedor\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

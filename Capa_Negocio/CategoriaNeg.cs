@@ -24,39 +24,21 @@ namespace Capa_Negocio
         {
             mensaje = string.Empty;
 
+            mensaje += string.IsNullOrWhiteSpace(item.Descripcion) ? "Es necesario la descripción de la Categoría\n" : "";
 
-            if (item.Descripcion == "")
-            {
-                mensaje += "Es necesario la descripcion de la Categoria\n";
-            }
+            return string.IsNullOrWhiteSpace(mensaje) ? objcd_Categoria.Create(item, out mensaje) : 0;
 
-            if (mensaje != string.Empty)
-            {
-                return 0;
-            }
-            else
-            {
-                return objcd_Categoria.Create(item, out mensaje);
-            };
         }
 
         public bool Update(Categoria item, out string mensaje)
         {
-            mensaje = string.Empty;
+           mensaje = string.Empty;
 
-            if (item.Descripcion == "")
-            {
-                mensaje += "Es necesario la descripcion de la Categoria\n";
-            }
+            //este operador ternario esta comprobando que descrippcion no este vacio con espacios en blancos
+            mensaje = string.IsNullOrWhiteSpace(item.Descripcion) ? "Es necesario la descripción de la Categoría\n" : string.Empty;
 
-            if (mensaje != string.Empty)
-            {
-                return false;
-            }
-            else
-            {
-                return objcd_Categoria.Update(item, out mensaje);
-            }
+            return string.IsNullOrEmpty(mensaje) && objcd_Categoria.Update(item, out mensaje);
+
         }
 
         public bool Delete(Categoria item, out string mensaje)
