@@ -31,6 +31,20 @@ namespace SistemaPuntoVenta.Productos
 
         }
 
+        private void dgvdata_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.RowIndex < dgvdata.Rows.Count)
+            {
+
+                dgvdata.Rows[e.RowIndex].Selected = true;
+
+
+                indice = e.RowIndex;
+
+                FillTextBox(e);
+            }
+        }
+
 
         //metodos de carga de datos
         #region
@@ -48,7 +62,11 @@ namespace SistemaPuntoVenta.Productos
 
             foreach (Categoria item in listacategoria)
             {
-                cbocategoria.Items.Add(new ComboBoxOption() { value = item.IdCategoria, text = item.Descripcion });
+                //validacion de que la categoria se encuentre activa, en caso de no serlo no sera cargado en la lista
+                if (item.Estado.Equals(true))
+                {
+                    cbocategoria.Items.Add(new ComboBoxOption() { value = item.IdCategoria, text = item.Descripcion });
+                }
             }
             cbocategoria.DisplayMember = "text";
             cbocategoria.ValueMember = "value";
@@ -96,52 +114,8 @@ namespace SistemaPuntoVenta.Productos
         }
         #endregion
 
-        //metodos extras
+        //Evento de botones
         #region
-        private void Limpiar()
-        {
-            idTmp = 0;
-            txtcodigo.Text = "";
-            txtnombre.Text = "";
-            txtdescripcion.Text = "";
-            cbocategoria.SelectedIndex = 0;
-            cboestado.SelectedIndex = 0;
-
-
-        }
-
-        private void FillTextBox(DataGridViewCellEventArgs e)
-        {
-
-
-            txtdescripcion.Text = dgvdata.Rows[indice].Cells["Descripcion"].Value.ToString();
-
-
-            idTmp = Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["Id"].Value);
-
-            foreach (ComboBoxOption oc in cboestado.Items)
-            {
-                try
-                {
-                    if (Convert.ToInt32(oc.value) == (Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["Estado"].Value.ToString())))
-                    {
-                        int indice_combo = cboestado.Items.IndexOf(oc);
-                        cboestado.SelectedIndex = indice_combo;
-                        break;
-                    }
-                }
-                catch (Exception ex)
-                {
-
-                }
-
-            }
-        }
-
-
-
-        #endregion
-
         private void btnguardar_Click(object sender, EventArgs e)
         {
             string mensaje = string.Empty;
@@ -210,5 +184,89 @@ namespace SistemaPuntoVenta.Productos
                 }
             }
         }
+
+        private void btnlimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void btneliminar_Click(object sender, EventArgs e)
+        {
+            if (idTmp != 0)
+            {
+                if (MessageBox.Show("¿Desea eliminar el producto", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    string mensaje = string.Empty;
+                    Producto obj = new Producto()
+                    {
+                        IdProducto = Convert.ToInt32(idTmp)
+                    };
+
+                    bool respuesta = new ProductoNeg().Delete(obj, out mensaje);
+
+                    if (respuesta)
+                    {
+                        dgvdata.Rows.RemoveAt(indice);
+                        Limpiar();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje, "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+
+                }
+            }
+        }
+
+        #endregion
+
+        //metodos extras
+        #region
+        private void Limpiar()
+        {
+            idTmp = 0;
+            txtcodigo.Text = "";
+            txtnombre.Text = "";
+            txtdescripcion.Text = "";
+            cbocategoria.SelectedIndex = 0;
+            cboestado.SelectedIndex = 0;
+
+
+        }
+
+        //llenar las cajas de texto al seleccionar una fila del DataViedGriew
+        private void FillTextBox(DataGridViewCellEventArgs e)
+        {
+
+            txtcodigo.Text = dgvdata.Rows[indice].Cells["Codigo"].Value.ToString();
+            txtnombre.Text = dgvdata.Rows[indice].Cells["Nombre"].Value.ToString();
+            txtdescripcion.Text = dgvdata.Rows[indice].Cells["Descripcion"].Value.ToString();
+
+            idTmp = Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["Id"].Value);
+
+            foreach (ComboBoxOption oc in cboestado.Items)
+            {
+                try
+                {
+                    if (Convert.ToInt32(oc.value) == (Convert.ToInt32(dgvdata.Rows[e.RowIndex].Cells["Estado"].Value.ToString())))
+                    {
+                        int indice_combo = cboestado.Items.IndexOf(oc);
+                        cboestado.SelectedIndex = indice_combo;
+                        break;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                }
+
+            }
+        }
+
+
+
+        #endregion   
+        
     }
 }
