@@ -214,6 +214,7 @@
             this.iconMenuItemProveedor.Size = new System.Drawing.Size(122, 80);
             this.iconMenuItemProveedor.Text = "Proveedor";
             this.iconMenuItemProveedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.iconMenuItemProveedor.Click += new System.EventHandler(this.iconMenuItemProveedor_Click);
             // 
             // iconMenuItemReportes
             // 

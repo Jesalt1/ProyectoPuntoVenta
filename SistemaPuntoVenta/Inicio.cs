@@ -14,6 +14,7 @@ using FontAwesome.Sharp;
 using SistemaPuntoVenta.Clientes;
 using SistemaPuntoVenta.Compras;
 using SistemaPuntoVenta.Productos;
+using SistemaPuntoVenta.Proveedor;
 using SistemaPuntoVenta.Usuarios;
 using SistemaPuntoVenta.Ventas;
 
@@ -128,6 +129,11 @@ namespace SistemaPuntoVenta
         private void iconMenuItemClientes_Click(object sender, EventArgs e)
         {
             AbrirFormularios((IconMenuItem)sender, new frmClientes());
+        }
+
+        private void iconMenuItemProveedor_Click(object sender, EventArgs e)
+        {
+            AbrirFormularios((IconMenuItem)sender, new frmProveedor());
         }
     }
 }

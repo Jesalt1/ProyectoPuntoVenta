@@ -1,6 +1,6 @@
-﻿namespace SistemaPuntoVenta.Clientes
+﻿namespace SistemaPuntoVenta.Proveedor
 {
-    partial class frmClientes
+    partial class frmProveedor
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
             this.dgvdata = new System.Windows.Forms.DataGridView();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Documento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Correo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EstadoValor = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +57,7 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtcorreo = new System.Windows.Forms.TextBox();
-            this.txtnombrecompleto = new System.Windows.Forms.TextBox();
+            this.txtRazonSocial = new System.Windows.Forms.TextBox();
             this.txtdocumento = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,7 +76,7 @@
             this.panel1.Location = new System.Drawing.Point(260, 82);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(895, 421);
-            this.panel1.TabIndex = 32;
+            this.panel1.TabIndex = 35;
             // 
             // dgvdata
             // 
@@ -96,7 +96,7 @@
             this.dgvdata.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Id,
             this.Documento,
-            this.NombreCompleto,
+            this.RazonSocial,
             this.Correo,
             this.Telefono,
             this.EstadoValor,
@@ -130,12 +130,12 @@
             this.Documento.ReadOnly = true;
             this.Documento.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-            // NombreCompleto
+            // RazonSocial
             // 
-            this.NombreCompleto.HeaderText = "Nombre Completo";
-            this.NombreCompleto.Name = "NombreCompleto";
-            this.NombreCompleto.ReadOnly = true;
-            this.NombreCompleto.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.RazonSocial.HeaderText = "Razon Social";
+            this.RazonSocial.Name = "RazonSocial";
+            this.RazonSocial.ReadOnly = true;
+            this.RazonSocial.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // Correo
             // 
@@ -174,7 +174,7 @@
             this.panelUsuarioFiltrar.Location = new System.Drawing.Point(260, 0);
             this.panelUsuarioFiltrar.Name = "panelUsuarioFiltrar";
             this.panelUsuarioFiltrar.Size = new System.Drawing.Size(895, 82);
-            this.panelUsuarioFiltrar.TabIndex = 31;
+            this.panelUsuarioFiltrar.TabIndex = 34;
             // 
             // panel2
             // 
@@ -208,7 +208,7 @@
             this.btnlimpiarbuscador.TabIndex = 37;
             this.btnlimpiarbuscador.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnlimpiarbuscador.UseVisualStyleBackColor = false;
-            this.btnlimpiarbuscador.Click += new System.EventHandler(this.btnlimpiarbuscador_Click);
+            this.btnlimpiarbuscador.Click += new System.EventHandler(this.btnlimpiarbuscador_Click_1);
             // 
             // btnbuscar
             // 
@@ -226,7 +226,7 @@
             this.btnbuscar.Size = new System.Drawing.Size(42, 23);
             this.btnbuscar.TabIndex = 36;
             this.btnbuscar.UseVisualStyleBackColor = false;
-            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click_1);
             // 
             // txtbusqueda
             // 
@@ -265,7 +265,7 @@
             this.label10.Padding = new System.Windows.Forms.Padding(2, 0, 0, 0);
             this.label10.Size = new System.Drawing.Size(895, 82);
             this.label10.TabIndex = 27;
-            this.label10.Text = "Lista de Cliente:";
+            this.label10.Text = "Lista de Proveedores:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PanelDetalleUsuario
@@ -280,7 +280,7 @@
             this.PanelDetalleUsuario.Controls.Add(this.txtTelefono);
             this.PanelDetalleUsuario.Controls.Add(this.label5);
             this.PanelDetalleUsuario.Controls.Add(this.txtcorreo);
-            this.PanelDetalleUsuario.Controls.Add(this.txtnombrecompleto);
+            this.PanelDetalleUsuario.Controls.Add(this.txtRazonSocial);
             this.PanelDetalleUsuario.Controls.Add(this.txtdocumento);
             this.PanelDetalleUsuario.Controls.Add(this.label4);
             this.PanelDetalleUsuario.Controls.Add(this.label3);
@@ -289,7 +289,7 @@
             this.PanelDetalleUsuario.Location = new System.Drawing.Point(0, 0);
             this.PanelDetalleUsuario.Name = "PanelDetalleUsuario";
             this.PanelDetalleUsuario.Size = new System.Drawing.Size(260, 503);
-            this.PanelDetalleUsuario.TabIndex = 30;
+            this.PanelDetalleUsuario.TabIndex = 33;
             // 
             // label9
             // 
@@ -298,9 +298,9 @@
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(23, 21);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(138, 25);
+            this.label9.Size = new System.Drawing.Size(167, 25);
             this.label9.TabIndex = 46;
-            this.label9.Text = "Detalle Cliente";
+            this.label9.Text = "Detalle Proveedor";
             // 
             // btneliminar
             // 
@@ -321,7 +321,7 @@
             this.btneliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btneliminar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btneliminar.UseVisualStyleBackColor = false;
-            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click);
+            this.btneliminar.Click += new System.EventHandler(this.btneliminar_Click_1);
             // 
             // btnlimpiar
             // 
@@ -342,7 +342,7 @@
             this.btnlimpiar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnlimpiar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnlimpiar.UseVisualStyleBackColor = false;
-            this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click);
+            this.btnlimpiar.Click += new System.EventHandler(this.btnlimpiar_Click_1);
             // 
             // btnguardar
             // 
@@ -363,7 +363,7 @@
             this.btnguardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnguardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnguardar.UseVisualStyleBackColor = false;
-            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click_1);
             // 
             // label8
             // 
@@ -408,12 +408,12 @@
             this.txtcorreo.Size = new System.Drawing.Size(192, 20);
             this.txtcorreo.TabIndex = 34;
             // 
-            // txtnombrecompleto
+            // txtRazonSocial
             // 
-            this.txtnombrecompleto.Location = new System.Drawing.Point(28, 118);
-            this.txtnombrecompleto.Name = "txtnombrecompleto";
-            this.txtnombrecompleto.Size = new System.Drawing.Size(192, 20);
-            this.txtnombrecompleto.TabIndex = 33;
+            this.txtRazonSocial.Location = new System.Drawing.Point(28, 118);
+            this.txtRazonSocial.Name = "txtRazonSocial";
+            this.txtRazonSocial.Size = new System.Drawing.Size(192, 20);
+            this.txtRazonSocial.TabIndex = 33;
             // 
             // txtdocumento
             // 
@@ -438,9 +438,9 @@
             this.label3.BackColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(25, 102);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 13);
+            this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 30;
-            this.label3.Text = "Nombre Completo:";
+            this.label3.Text = "Razon Social";
             // 
             // label2
             // 
@@ -452,7 +452,7 @@
             this.label2.TabIndex = 29;
             this.label2.Text = "Nro Documento:";
             // 
-            // frmClientes
+            // frmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -460,9 +460,9 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelUsuarioFiltrar);
             this.Controls.Add(this.PanelDetalleUsuario);
-            this.Name = "frmClientes";
-            this.Text = "frmClientes";
-            this.Load += new System.EventHandler(this.frmClientes_Load);
+            this.Name = "frmProveedor";
+            this.Text = "frmProveedor";
+            this.Load += new System.EventHandler(this.frmProveedor_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdata)).EndInit();
             this.panelUsuarioFiltrar.ResumeLayout(false);
@@ -496,14 +496,14 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtcorreo;
-        private System.Windows.Forms.TextBox txtnombrecompleto;
+        private System.Windows.Forms.TextBox txtRazonSocial;
         private System.Windows.Forms.TextBox txtdocumento;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Documento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompleto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
         private System.Windows.Forms.DataGridViewTextBoxColumn Correo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn EstadoValor;
