@@ -27,3 +27,6 @@ C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\Sistem
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Compras.frmDetallesCompras.resources
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Clientes.frmClientes.resources
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Proveedor.frmProveedor.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\SistemaPuntoVenta.Compras.Form1.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\CapaPresentacion.Modales.mdProducto.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\CapaPresentacion.Modales.mdProveedor.resources

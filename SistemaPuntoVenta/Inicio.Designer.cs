@@ -281,6 +281,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip);
             this.Controls.Add(this.menuStripTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

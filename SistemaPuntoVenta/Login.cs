@@ -38,14 +38,22 @@ namespace SistemaPuntoVenta
 
             if (usuario != null)
             {
-                //se envia el objeto del tipo usuario que se ha obtenido de la consulta a la base de datos
-                //
-                Inicio inicio = new Inicio(usuario);
-                inicio.Show();
-                this.Hide();
+                if (usuario.Estado.Equals(true))
+                {
+                    //se envia el objeto del tipo usuario que se ha obtenido de la consulta a la base de datos
+                    //
+                    Inicio inicio = new Inicio(usuario);
+                    inicio.Show();
+                    this.Hide();
 
 
-                inicio.FormClosing += FrmClosing;//envento de cerrado y retorno al fomrulario login
+                    inicio.FormClosing += FrmClosing;//envento de cerrado y retorno al fomrulario login
+                }
+                else
+                {
+                    MessageBox.Show("Usuario inactivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+               
             }
             else
             {

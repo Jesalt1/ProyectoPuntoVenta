@@ -118,7 +118,7 @@ namespace SistemaPuntoVenta
 
         private void iconMenuItemRegistrarCompras_Click(object sender, EventArgs e)
         {
-            AbrirFormularios((IconMenuItem)sender, new frmRegistrarCompras());
+            AbrirFormularios((IconMenuItem)sender, new frmRegistrarCompras(usuarioActual));
         }
 
         private void iconMenuItemDetallesCompras_Click(object sender, EventArgs e)
