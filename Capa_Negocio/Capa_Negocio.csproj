@@ -50,6 +50,7 @@
     <Compile Include="ProveedorNeg.cs" />
     <Compile Include="RolNeg.cs" />
     <Compile Include="UsuarioNeg.cs" />
+    <Compile Include="VentasNeg.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Capa_Datos\Capa_Datos.csproj">

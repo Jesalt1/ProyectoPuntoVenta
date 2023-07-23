@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Capa_Datos;
 using Capa_Negocio;
 using CapaEntidad;
+using CapaPresentacion;
 using FontAwesome.Sharp;
 using SistemaPuntoVenta.Clientes;
 using SistemaPuntoVenta.Compras;
@@ -108,7 +109,7 @@ namespace SistemaPuntoVenta
 
         private void iconMenuItemRegistrarVentas_Click(object sender, EventArgs e)
         {
-            AbrirFormularios((IconMenuItem)sender, new frmRegistrarVentas());
+            AbrirFormularios((IconMenuItem)sender, new frmRegistrarVentas(usuarioActual));
         }
 
         private void iconMenuItemDetallesVenta_Click(object sender, EventArgs e)
@@ -123,7 +124,7 @@ namespace SistemaPuntoVenta
 
         private void iconMenuItemDetallesCompras_Click(object sender, EventArgs e)
         {
-            AbrirFormularios((IconMenuItem)sender, new frmDetallesCompras());
+            AbrirFormularios((IconMenuItem)sender, new frmDetalleCompra());
         }
 
         private void iconMenuItemClientes_Click(object sender, EventArgs e)

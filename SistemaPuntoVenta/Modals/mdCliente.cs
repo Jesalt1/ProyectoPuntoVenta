@@ -13,59 +13,47 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Modales
 {
-    public partial class mdProducto : Form
+    public partial class mdCliente : Form
     {
-        public Producto _Producto { get; set; }
 
-        public mdProducto()
+        public Cliente _Cliente { get; set; }
+
+        public mdCliente()
         {
             InitializeComponent();
         }
 
-        private void mdProducto_Load(object sender, EventArgs e)
+        private void mdCliente_Load(object sender, EventArgs e)
         {
             foreach (DataGridViewColumn columna in dgvdata.Columns)
             {
-
-                if (columna.Visible == true)
-                {
-                    cbobusqueda.Items.Add(new ComboBoxOption() { value = columna.Name, text = columna.HeaderText });
-                }
+               cbobusqueda.Items.Add(new ComboBoxOption() { value = columna.Name, text = columna.HeaderText });
             }
+
             cbobusqueda.DisplayMember = "text";
             cbobusqueda.ValueMember = "value";
             cbobusqueda.SelectedIndex = 0;
 
-            List<Producto> lista = new ProductoNeg().Listar();
+            List<Cliente> lista = new ClientesNeg().Listar();
 
-            foreach (Producto item in lista)
+            foreach (Cliente item in lista)
             {
-                dgvdata.Rows.Add(new object[] {
-                    item.IdProducto,
-                    item.Codigo,
-                    item.Nombre,
-                    item.oCategoria.Descripcion,
-                    item.Stock,
-                    item.PrecioCompra,
-                    item.PrecioVenta
-                });
+                if (item.Estado)
+                    dgvdata.Rows.Add(new object[] { item.Documento, item.NombreCompleto });
             }
+
         }
 
         private void dgvdata_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int iRow = e.RowIndex;
             int iColum = e.ColumnIndex;
-            if (iRow >= 0 && iColum > 0)
+            if (iRow >= 0 && iColum >= 0)
             {
-                _Producto = new Producto()
+                _Cliente = new Cliente()
                 {
-                    IdProducto = Convert.ToInt32(dgvdata.Rows[iRow].Cells["Id"].Value.ToString()),
-                    Codigo = dgvdata.Rows[iRow].Cells["Codigo"].Value.ToString(),
-                    Nombre = dgvdata.Rows[iRow].Cells["Nombre"].Value.ToString(),
-                    Stock = Convert.ToInt32(dgvdata.Rows[iRow].Cells["Stock"].Value.ToString()),
-                    PrecioCompra = Convert.ToDecimal(dgvdata.Rows[iRow].Cells["PrecioCompra"].Value.ToString()),
-                    PrecioVenta = Convert.ToDecimal(dgvdata.Rows[iRow].Cells["PrecioVenta"].Value.ToString()),
+                    Documento = dgvdata.Rows[iRow].Cells["Documento"].Value.ToString(),
+                    NombreCompleto = dgvdata.Rows[iRow].Cells["NombreCompleto"].Value.ToString()
                 };
                 this.DialogResult = DialogResult.OK;
                 this.Close();

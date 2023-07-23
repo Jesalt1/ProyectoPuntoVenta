@@ -59,17 +59,11 @@
     <Compile Include="Clientes\frmClientes.Designer.cs">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Compras\Form1.cs">
+    <Compile Include="Compras\frmDetalleCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Compras\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Compras\frmDetallesCompras.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Compras\frmDetallesCompras.Designer.cs">
-      <DependentUpon>frmDetallesCompras.cs</DependentUpon>
+    <Compile Include="Compras\frmDetalleCompra.Designer.cs">
+      <DependentUpon>frmDetalleCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="Compras\frmRegistrarCompras.cs">
       <SubType>Form</SubType>
@@ -88,6 +82,12 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modals\mdCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modals\mdCliente.designer.cs">
+      <DependentUpon>mdCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Modals\mdProducto.cs">
       <SubType>Form</SubType>
@@ -143,11 +143,8 @@
     <EmbeddedResource Include="Clientes\frmClientes.resx">
       <DependentUpon>frmClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Compras\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Compras\frmDetallesCompras.resx">
-      <DependentUpon>frmDetallesCompras.cs</DependentUpon>
+    <EmbeddedResource Include="Compras\frmDetalleCompra.resx">
+      <DependentUpon>frmDetalleCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Compras\frmRegistrarCompras.resx">
       <DependentUpon>frmRegistrarCompras.cs</DependentUpon>
@@ -157,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modals\mdCliente.resx">
+      <DependentUpon>mdCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modals\mdProducto.resx">
       <DependentUpon>mdProducto.cs</DependentUpon>

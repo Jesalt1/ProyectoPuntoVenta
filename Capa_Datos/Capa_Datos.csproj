@@ -50,6 +50,7 @@
     <Compile Include="CD_Productos.cs" />
     <Compile Include="CD_Proveedor.cs" />
     <Compile Include="CD_Roles.cs" />
+    <Compile Include="CD_Venta.cs" />
     <Compile Include="ConexionBD.cs" />
     <Compile Include="CRUD.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
