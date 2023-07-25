@@ -33,6 +33,14 @@ namespace SistemaPuntoVenta.Usuarios
             FilterSearch();
         }
 
+        private void txtdocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado es un número o una tecla de control
+            // Limitar el número de dígitos a 10
+            // Cancelar el evento para evitar que se escriban más dígitos
+            e.Handled = (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (this.Text.Length >= 10) && !char.IsControl(e.KeyChar)) ? true : false; // Cancelar el evento para evitar que el carácter se escriba en el TextBox Y Cancelar el evento para evitar que se escriban más dígitos
+        }
+
         //Evento para seleccionar toda una fila al momento de hacer click en ella
         private void dgvdata_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -317,8 +325,9 @@ namespace SistemaPuntoVenta.Usuarios
 
 
 
+
         #endregion
 
-       
+        
     }
 }

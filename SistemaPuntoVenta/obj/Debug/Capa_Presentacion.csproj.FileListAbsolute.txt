@@ -30,3 +30,5 @@ C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\CapaPr
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\CapaPresentacion.Modales.mdProveedor.resources
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\CapaPresentacion.frmDetalleCompra.resources
 C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\CapaPresentacion.Modales.mdCliente.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\CapaPresentacion.frmReporteCompras.resources
+C:\Users\me-ga\source\repos\SistemaPuntoVenta\SistemaPuntoVenta\obj\Debug\CapaPresentacion.frmReporteVentas.resources

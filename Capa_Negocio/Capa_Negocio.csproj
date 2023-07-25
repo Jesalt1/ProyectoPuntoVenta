@@ -48,6 +48,7 @@
     <Compile Include="ProductoNeg.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProveedorNeg.cs" />
+    <Compile Include="ReportesNeg.cs" />
     <Compile Include="RolNeg.cs" />
     <Compile Include="UsuarioNeg.cs" />
     <Compile Include="VentasNeg.cs" />

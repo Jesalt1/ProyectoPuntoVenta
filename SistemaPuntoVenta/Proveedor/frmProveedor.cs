@@ -44,6 +44,13 @@ namespace SistemaPuntoVenta.Proveedor
             }
         }
 
+        private void txtdocumento_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Verificar si el carácter ingresado es un número o una tecla de control
+            e.Handled = (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar)) ? true : false; // Cancelar el evento para evitar que el carácter se escriba en el TextBox
+
+        }
+
         //region de cargado de datos en el form
         #region
 
@@ -261,8 +268,9 @@ namespace SistemaPuntoVenta.Proveedor
         }
 
 
+
         #endregion
 
-      
+
     }
 }

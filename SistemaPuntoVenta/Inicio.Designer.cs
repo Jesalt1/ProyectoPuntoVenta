@@ -46,6 +46,8 @@
             this.toolStripTextBoxUser = new System.Windows.Forms.ToolStripTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panelChildForm = new System.Windows.Forms.Panel();
+            this.reporteVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.menuStripTitle.SuspendLayout();
             this.SuspendLayout();
@@ -214,11 +216,14 @@
             this.iconMenuItemProveedor.Size = new System.Drawing.Size(122, 80);
             this.iconMenuItemProveedor.Text = "Proveedor";
             this.iconMenuItemProveedor.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.iconMenuItemProveedor.Click += new System.EventHandler(this.iconMenuItemProveedor_Click);
+            this.iconMenuItemProveedor.Click += new System.EventHandler(this.iconMenuItemProveedor_Click_1);
             // 
             // iconMenuItemReportes
             // 
             this.iconMenuItemReportes.AutoSize = false;
+            this.iconMenuItemReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteVentasToolStripMenuItem,
+            this.reporteComprasToolStripMenuItem});
             this.iconMenuItemReportes.IconChar = FontAwesome.Sharp.IconChar.BarChart;
             this.iconMenuItemReportes.IconColor = System.Drawing.Color.Black;
             this.iconMenuItemReportes.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -272,6 +277,20 @@
             this.panelChildForm.Size = new System.Drawing.Size(1032, 307);
             this.panelChildForm.TabIndex = 3;
             // 
+            // reporteVentasToolStripMenuItem
+            // 
+            this.reporteVentasToolStripMenuItem.Name = "reporteVentasToolStripMenuItem";
+            this.reporteVentasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reporteVentasToolStripMenuItem.Text = "Reporte Ventas";
+            this.reporteVentasToolStripMenuItem.Click += new System.EventHandler(this.reporteVentasToolStripMenuItem_Click);
+            // 
+            // reporteComprasToolStripMenuItem
+            // 
+            this.reporteComprasToolStripMenuItem.Name = "reporteComprasToolStripMenuItem";
+            this.reporteComprasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reporteComprasToolStripMenuItem.Text = "Reporte Compras";
+            this.reporteComprasToolStripMenuItem.Click += new System.EventHandler(this.reporteComprasToolStripMenuItem_Click);
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,5 +335,7 @@
         private FontAwesome.Sharp.IconMenuItem iconMenuItemReportes;
         private System.Windows.Forms.MenuStrip menuStripTitle;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxUser;
+        private System.Windows.Forms.ToolStripMenuItem reporteVentasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteComprasToolStripMenuItem;
     }
 }

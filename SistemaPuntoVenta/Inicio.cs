@@ -70,6 +70,7 @@ namespace SistemaPuntoVenta
             formulario.FormBorderStyle = FormBorderStyle.None;
             formulario.Dock = DockStyle.Fill;
             formulario.BackColor = Color.SteelBlue;
+            formulario.StartPosition = FormStartPosition.CenterParent;
 
             panelChildForm.Controls.Add(formulario);
             formulario.Show();
@@ -132,9 +133,19 @@ namespace SistemaPuntoVenta
             AbrirFormularios((IconMenuItem)sender, new frmClientes());
         }
 
-        private void iconMenuItemProveedor_Click(object sender, EventArgs e)
+        private void iconMenuItemProveedor_Click_1(object sender, EventArgs e)
         {
             AbrirFormularios((IconMenuItem)sender, new frmProveedor());
+        }
+
+        private void reporteComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularios(iconMenuItemReportes, new frmReporteCompras());
+        }
+
+        private void reporteVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AbrirFormularios(iconMenuItemReportes, new frmReporteVentas());
         }
     }
 }
